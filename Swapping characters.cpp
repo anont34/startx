@@ -2,7 +2,7 @@
 #include <string.h>
 using namespace std;
 
-long double fact(int N); // функция для нахождения факториала
+long double fact(int N); // Function for finding factorials
 
 int main()
 {
@@ -12,47 +12,47 @@ int main()
 	
 	do
 	{
-	cout << "Программа по престановке букв.\n"
-		<< "Введите ваше слово(максимум 20 символов) и вам выдаст все варианты перестановки букв.\n";
+	cout << "The program for the replacement of letters.\n"
+		<< "Enter your word (a maximum of 20 characters) and you will be given all the options for rearranging the letters.\n";
 	cin >> word;
 	if(strlen(word) > 1)
 		break;
-	cout << "\n1 букву особо не перставишь. Введите норм:\n";
+	cout << "\n1 letter can not be changed. Enter the norms:\n";
 	} while(true);
 
-	wordlen = strlen(word); // опеределяем длину слово, для факториала
-	reshuffle = fact(wordlen); // определяем число перестановок букв(готовых слов)
+	wordlen = strlen(word); // Define the length of the word, for the factorial
+	reshuffle = fact(wordlen); // Determine the number of permutations of letters (ready-made words)
 
-	int n = 0, m = 1; // "счетчики индексов букв"
+	int n = 0, m = 1; // "Counters of letter indices"
 	
-	//цикл перестановки
+	//Swapping cycle
 	for(reshuffle; reshuffle>0; reshuffle--)
 	{
-		// закидываем букву в указатель
+		// We put a letter in the index
 		char *bukv1 = new char;
 		*bukv1 = word[n];
 		char *bukv2 = new char;
 		*bukv2 = word[m];
 
-		// меняем местами буквы
+		// Swap letters
 		word[m] = *bukv1;
 		word[n] = *bukv2;
 
-		/*// очищаем указатели
+		/*// Clearing pointers
 		*bukv1 = 0;
 		*bukv2 = 0;
 		delete bukv1;
 		delete bukv2;*/
 		
-		n++; m++;   // перемещаем индексы букв дальше
+		n++; m++;   // Move the letter indices further
 		
-		cout << word << endl;   // печатаем полное слово
+		cout << word << endl;   // Print the full word
 		
-		if(m == wordlen)   // если все слово изменилось
-			{n = 0; m = 1;}   // обнуляем счетчики индексов
+		if(m == wordlen)   // If the whole word has changed
+			{n = 0; m = 1;}   // If the whole word has changed
 	}
 
-	cout << "\nВсего " << fact(wordlen) << " вариантов перестановки.\n";
+	cout << "\nTotal " << fact(wordlen) << " variants of permutation.\n";
 
 system ("pause");
 return 0;
@@ -60,5 +60,5 @@ return 0;
 
 long double fact(int N)
 {
-        return N * fact(N - 1); // рекурсия
+        return N * fact(N - 1); // Recursion
 }
