@@ -8,7 +8,7 @@ int main()
 {
 	int wordlen, reshuffle;
 	char word[20];
-	setlocale(LC_ALL, "Russian");
+	//setlocale(LC_ALL, "Russian");
 	
 	do
 	{
