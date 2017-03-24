@@ -38,7 +38,7 @@ public:
 			GetFamilia() << " has woreked " << GetHowMuchHours() << " hours" <<
 			"\nSalary is " << GetSalary() <<
 			"\nPremy is " << GetPremy() <<
-			"\nInformation about " << GetFamilia() << " was written in file (*in developing*)\n"; // in developing
+			"\nInformation about " << GetFamilia() << " was written in file \"Worker.txt\"\n"; // in developing
 	}
 private:
 	char familia[10];
@@ -51,7 +51,7 @@ int main()
 	char name[10];
 	int exp, houWage, hmh;
 	Worker man;
-	cout << "Enter worker's name: ";
+	cout << "Enter worker's name: "; \\ not work
 	cin >> name;
 	man.SetFamilia(name);
 	cout << "\n Enter worker's experience: ";
@@ -66,8 +66,17 @@ int main()
 	man.SetSalary(hmh, houWage);
 	man.SetPremy(hmh);
 
-	man.PrintAll();
+	ofstream fout;
+	fout.open("Worker.txt");
+	fout << man.GetFamilia() << endl <<
+			"Experience is " << man.GetExperience() << endl <<
+			"Hourly wage is " << man.GetHourlyWage() << endl <<
+			man.GetFamilia() << " has woreked " << man.GetHowMuchHours() << " hours" <<
+			"\nSalary is " << man.GetSalary() <<
+			"\nPremy is " << man.GetPremy();
+	fout.close();
 
+	man.PrintAll();
 system("pause");
 return 0;
 }
