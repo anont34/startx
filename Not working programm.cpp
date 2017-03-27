@@ -59,7 +59,7 @@ int main()
 
 		cout << "\nAdd new data - 1, exit - 0: ";
         cin >> choice;
-        while(choice != 0 && choice != 1)//если пользователь ввел не 0 и не 1
+        while(choice != 0 && choice != 1)// choice input
         {
             cout << "Error input!\n";
                 cout << "\nAdd new data - 1, exit - 0: ";
