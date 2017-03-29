@@ -99,6 +99,10 @@ int main()
 				{cout << endl << "\Result find enrollee: " << "\nIndex: " << p[i].index << "\nFirst name: " << p[i].firstName
 				<< "\nLast name: " << p[i].lastName << "\nAddress: " << p[i].address
 				<< "\nSchool: " << p[i].school << "\nSex: " << p[i].sex << endl;}
+				else
+				{
+					cout << "\nError. There is no such person with this name.\n";
+				}
 			}
 		cout << "\nList of enrollee - 3, search by name - 2, add new data - 1, exit - 0: ";
 		cin >> choice;
