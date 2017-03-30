@@ -41,7 +41,7 @@ base[2].sex = "man";
 */
 while(true)
 {
-cout << "\tMENU \n3 - search \n2 - base \n1 - add \n0 - exit \nU choice: ";
+cout << "\n\tMENU \n3 - search \n2 - base \n1 - add \n0 - exit \nU choice: ";
 cin >> choice;	cout << endl;
 
 switch (choice)
@@ -60,7 +60,7 @@ case 1:
 			cin >> base[indexadd].address;
 			cout << "School: ";
 			cin >> base[indexadd].school;
-			cout << "Sex: " << indexadd;
+			cout << "Sex: ";
 			cin >> base[indexadd].sex;
 			indexadd++;
 			break;
@@ -81,7 +81,27 @@ case 2:
 		cout << "\tBASE END: \n";
 		break;
 	}
-
+case 3:
+	{
+		char name[20];
+			cout << "Enter name: ";
+			cin >> name;
+			int signalSearch = 0;
+			cout << "\n\tU FIND:\n";
+			for (int i = 0; i<indexadd; i++)
+			{
+				if (strcmp (name, base[i].firstName) == 0)
+				{
+				cout << "\nIndex: " << base[i].index << "\nFirst name: " << base[i].firstName
+				<< "\nLast name: " << base[i].lastName << "\nAddress: " << base[i].address
+				<< "\nSchool: " << base[i].school << "\nSex: " << base[i].sex << endl;
+				signalSearch++;
+				}
+			}
+			if (signalSearch == 0)
+				cout << "Find such entrant not exist.\n";
+		break;
+	}
 default:
 	cout << "Error # choice.";
 	break;
