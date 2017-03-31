@@ -32,13 +32,12 @@ public:
 	double GetPremy() {return Premy;}
 	void PrintAll()
 	{
-		cout << GetFamilia() << endl <<
-			"Experience is " << GetExperience() << endl <<
-			"Hourly wage is " << GetHourlyWage() << endl <<
-			GetFamilia() << " has woreked " << GetHowMuchHours() << " hours" <<
-			"\nSalary is " << GetSalary() <<
-			"\nPremy is " << GetPremy() <<
-			"\nInformation about " << GetFamilia() << " was written in file \"Worker.txt\"\n"; // in developing
+		cout << GetFamilia() << endl
+		<< "Experience is " << GetExperience() << endl
+		<< "Hourly wage is " << GetHourlyWage() << endl
+		<< GetFamilia() << " has woreked " << GetHowMuchHours() << " hours"
+		<< "\nSalary is " << GetSalary() << "\nPremy is " << GetPremy()
+		<< "\nInformation about " << GetFamilia() << " was written in file \"Worker.txt\"\n"; // in developing
 	}
 private:
 	char familia[10];
@@ -68,12 +67,12 @@ int main()
 
 	ofstream fout;
 	fout.open("Worker.txt");
-	fout << man.GetFamilia() << endl <<
-			"Experience is " << man.GetExperience() << endl <<
-			"Hourly wage is " << man.GetHourlyWage() << endl <<
-			man.GetFamilia() << " has woreked " << man.GetHowMuchHours() << " hours" <<
-			"\nSalary is " << man.GetSalary() <<
-			"\nPremy is " << man.GetPremy();
+	fout << man.GetFamilia() << endl
+	<< "Experience is " << man.GetExperience() << endl
+	<< "Hourly wage is " << man.GetHourlyWage() << endl
+	<< man.GetFamilia() << " has woreked " << man.GetHowMuchHours() << " hours"
+	<< "\nSalary is " << man.GetSalary()
+	<< "\nPremy is " << man.GetPremy();
 	fout.close();
 
 	man.PrintAll();
