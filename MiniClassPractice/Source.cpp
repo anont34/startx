@@ -7,11 +7,12 @@ int main()
 {
 	setlocale(LC_CTYPE, "rus");
 	int choice, ok=1, index=0;
-	char name[20], lname[20]; int n;
-	StudentGroup students[10];
+	char lname[20]; int n;
+	char name[20];
+	StudentGroup *students = new StudentGroup[10];
 do
 {
-	cout << "Base - 2, Add new student - 1, exit - 0\n";
+	cout << "\nSearch - 3, Base - 2, Add new student - 1, exit - 0\n";
 	cin >> choice;
 	switch (choice)
 	{
@@ -25,10 +26,11 @@ do
 			  {
 			  cout << "\nInput first name: ";
 			  cin >> name;
+			  cout << endl;
 			  students[index].SetFirstName(name);
 			  cout << "\nInput last name: ";
 			  cin >> lname;
-			  students[index].SetLastName(name);
+			  students[index].SetLastName(lname);
 			  cout << "\nScore English: ";
 			  cin >> n;
 			  students[index].SetEng(n);
@@ -38,7 +40,7 @@ do
 			  cout << "\nScore Physics: ";
 			  cin >> n;
 			  students[index].SetPhys(n);
-			  students[index].SetAveScore();
+			  students[index].GetAveScore();
 			  index++;
 			  break;
 			  }
@@ -49,13 +51,38 @@ do
 			for(int i=0; i<index; i++)
 			{
 				cout << "\nName: " << students[i].GetFirstName()
+				<< "Last name: " << students[i].GetLastName()
+				<< "English score: " << students[i].GetEng()
+				<< "History score: " << students[i].GetHist()
+				<< "Physics score: " << students[i].GetPhys()
+				<< "Average score: " << students[i].GetAveScore() << endl;
+			}
+			cout << "\n\tBASE END\n";
+			break;
+		}
+	case 3:
+		{
+			char findName[20];
+			cout << "Enter name: ";
+			cin >> findName;
+			int signalSearch = 0;
+			cout << "\n\tU FIND:\n";
+			for (int i = 0; i<index; i++)
+			{
+				if (strcmp (findName, students[i].GetFirstName()) == 0)
+				{
+				cout << "\nName: " << students[i].GetFirstName()
 				<< "\nLast name: " << students[i].GetLastName()
 				<< "\nEnglish score: " << students[i].GetEng()
 				<< "\nHistory score: " << students[i].GetHist()
 				<< "\nPhysics score: " << students[i].GetPhys()
 				<< "\nAverage score: " << students[i].GetAveScore() << endl;
+				signalSearch++;
+				}
 			}
-			break;
+			if (signalSearch == 0)
+				cout << "Find such entrant not exist.\n";
+		break;
 		}
 	default:
 		cout << "\nWrong choice.\n";

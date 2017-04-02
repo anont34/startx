@@ -1,5 +1,6 @@
 #include "StudentGroup.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 
@@ -39,17 +40,17 @@ void StudentGroup::SetPhys(int Phys)
 	else
 		cout << "\nWrong score.\n";
 }
-void StudentGroup::SetFirstName(char fn[20]){firstName[20] = fn[20];}
-void StudentGroup::SetLastName(char ln[20]){lastName[20] = ln[20];}
+void StudentGroup::SetFirstName(char name[]){strcpy(firstName, name);}
+void StudentGroup::SetLastName(char ln[]){strcpy(lastName, ln);}
 
-char StudentGroup::GetFirstName(){return firstName[20];}
-char StudentGroup::GetLastName(){return lastName[20];}
+char *StudentGroup::GetFirstName(){return firstName;}
+char *StudentGroup::GetLastName(){return lastName;}
 int StudentGroup::GetEng(){return English;}
 int StudentGroup::GetHist(){return History;}
 int StudentGroup::GetPhys(){return Physics;}
 
-void StudentGroup::SetAveScore()
+float StudentGroup::GetAveScore()
 {
-	float averageScore = 3/(English + History + Physics);
+	float averageScore = (English + History + Physics)/3;
+	return averageScore;
 }
-float StudentGroup::GetAveScore(){return averageScore;}
